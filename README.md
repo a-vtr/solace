@@ -12,15 +12,6 @@ solace-player/
 ├── player.js           # Core MusicPlayer class
 └── library.js          # StorageManager for IndexedDB
 ```
-
-## Bug Fixes Applied
-
-### Fixed Issue: jsmediatags Import Error
-
-**Problem:** The original separated code had `import jsmediatags from 'jsmediatags';` in `player.js`, but jsmediatags is loaded as a global variable via CDN in the HTML file, not as an ES module.
-
-**Solution:** Removed the invalid ES6 import statement. The jsmediatags library is available globally as `window.jsmediatags` after being loaded via the CDN script tag in `index.html`.
-
 ## File Responsibilities
 
 ### index.html
@@ -59,23 +50,6 @@ solace-player/
 - Initializes MusicPlayer instance
 - Entry point for the application
 
-## Running the Project
-
-### Local Development
-1. Serve the project directory with any static file server:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
-2. Open `http://localhost:8000` in a modern browser
-
-**Important:** You must serve the files via HTTP/HTTPS. Opening `index.html` directly via `file://` protocol will cause CORS errors with ES6 modules.
 
 ### Deployment
 1. Deploy the entire directory to any static hosting service
@@ -105,19 +79,3 @@ solace-player/
 - Mini player for background playback
 - Light/Dark theme toggle
 - Keyboard shortcuts
-
-## Keyboard Shortcuts
-
-- **Space** - Play/Pause
-- **→** - Next track
-- **←** - Previous track
-- **S** - Toggle shuffle
-- **L** - Toggle loop
-
-## Notes
-
-This is a strict refactor of the original single-file application. All functionality, styling, and behavior has been preserved exactly. The only changes made were:
-
-1. Separating the code into modular files
-2. Fixing the jsmediatags import to work with the CDN global variable
-3. Maintaining all original functionality without modification
