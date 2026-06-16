@@ -1,6 +1,6 @@
 # Solace Music Player
 
-A private, offline-first music player for your personal collection.
+A private, music player for your local collection.
 
 ## Project Structure
 
@@ -70,7 +70,7 @@ solace-player/
 
 ## Features
 
-- Offline-first music player
+- Local audio files player
 - Supports MP3, M4A, FLAC formats
 - IndexedDB for persistent storage
 - Album artwork display
